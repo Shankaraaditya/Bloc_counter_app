@@ -7,7 +7,6 @@ class CounterCubit extends Cubit<int> {
   */
   CounterCubit() : super(0);
 
-
 /* 
  When this method is called, it increments the current state by 1 and then emits the new state using the emit method. The emit method is provided by the Cubit class and is used to notify the listeners about the new state.
 
@@ -15,5 +14,12 @@ class CounterCubit extends Cubit<int> {
 */
   void increment() {
     emit(state + 1);
+  }
+
+  void decrement() {
+    if (state == 0) {
+      return;
+    }
+    emit(state - 1);
   }
 }
