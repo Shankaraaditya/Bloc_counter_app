@@ -32,22 +32,19 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             BlocBuilder(
-              bloc: counterCubit,
-              builder: (context, value) {
-                return Text(
-                  '$value',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
-              }
-            ),
+                bloc: counterCubit,
+                builder: (context, value) {
+                  return Text(
+                    '$value',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  );
+                }),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           counterCubit.increment();
-
-          setState(() {});
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
