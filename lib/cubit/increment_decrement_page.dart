@@ -1,3 +1,4 @@
+import 'package:counter_app/bloc/counter_bloc.dart';
 import 'package:counter_app/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +14,7 @@ class IncDecPage extends StatelessWidget {
     */
     final counterCubit = BlocProvider.of<CounterCubit>(context);
 
+    final counterBloc = BlocProvider.of<CounterBloc>(context);
 
     return Scaffold(
       body: Column(
@@ -21,7 +23,8 @@ class IncDecPage extends StatelessWidget {
           FloatingActionButton(
             heroTag: "btn2",
             onPressed: () {
-              counterCubit.increment();
+              // Notifies the [Bloc] of a new [event] which triggers all corresponding [EventHandler] instances.
+              counterBloc.add(CounterIncremented());
             },
             tooltip: 'Increment',
             child: const Icon(Icons.add),

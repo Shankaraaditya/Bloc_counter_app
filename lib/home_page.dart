@@ -1,3 +1,5 @@
+import 'package:counter_app/bloc/counter_bloc.dart';
+import 'package:counter_app/bloc/counter_bloc.dart';
 import 'package:counter_app/cubit/counter_cubit.dart';
 import 'package:counter_app/cubit/increment_decrement_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,8 @@ class MyHomePage extends StatelessWidget {
      using bloc provider we can access same instance of a class for our whole app
      now we don't need to create instance of a class each time we want to use or so. 
     */
-    final counterCubit = BlocProvider.of<CounterCubit>(context);
+    // final counterCubit = BlocProvider.of<CounterCubit>(context);
+    
 
     return Scaffold(
       appBar: AppBar(
@@ -31,8 +34,7 @@ class MyHomePage extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder(
-                bloc: counterCubit,
+            BlocBuilder<CounterBloc ,int>(
                 builder: (context, value) {
                   return Text(
                     '$value',
