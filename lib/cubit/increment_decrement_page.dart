@@ -32,7 +32,7 @@ class IncDecPage extends StatelessWidget {
           FloatingActionButton(
             heroTag: "btn1",
             onPressed: () {
-              counterCubit.decrement();
+              counterBloc.add(CounterDecremented());
             },
             tooltip: 'Decrement',
             child: const Icon(Icons.minimize),
