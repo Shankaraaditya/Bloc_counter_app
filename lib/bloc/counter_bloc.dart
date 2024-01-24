@@ -1,13 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-sealed class CounterEvent {}
-
-/// Event which will be passed to Bloc.
-/// because Bloc takes event and state as i/p argument.
-///
-class CounterIncremented extends CounterEvent {}
-
-class CounterDecremented extends CounterEvent {}
+part 'counter_event.dart';
 
 /// Takes a "Stream of Events" as input and transforms them into a "Stream of States" as output.
 class CounterBloc extends Bloc<CounterEvent, int> {
